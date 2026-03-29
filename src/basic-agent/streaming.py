@@ -30,10 +30,10 @@ async def run_reasoning_agent():
             async for event in agent_result_stream.stream_events():
                 if event.type == "raw_response_event":
                     if event.data.type == "response.reasoning_text.delta":
-                        print(f"response.reasoning_text.delta --> {event.data.delta}")
+                        print(f"\033[33m{event.data.delta}\033[0m",end="", flush=True)
                         print("\n")
                     elif event.data.type == "response.output_text.delta":
-                        print(f"response.output_text.delta --> {event.data.delta}")
+                        print(f"\033[32m{event.data.delta}\033[0m",end="", flush=True)
                         print("\n")
 
             print("\n\n\n")
